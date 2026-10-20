@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace Dieodds;
 
 public static class Cli
@@ -21,6 +23,12 @@ public static class Cli
     {
         try
         {
+            if (args.Length == 1 && args[0] == "--version")
+            {
+                io.Out($"dieodds {GetVersion()}\n");
+                return 0;
+            }
+
             if (args.Length == 0)
             {
                 throw new DieException("missing command (stats, chart, chance or versus)");
@@ -44,5 +52,17 @@ public static class Cli
             io.Err($"dieodds: {exception.Message}\n");
             return 2;
         }
+    }
+
+    private static string GetVersion()
+    {
+        var version = typeof(Cli).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+        if (version is null)
+        {
+            return "dev";
+        }
+
+        var suffixIndex = version.IndexOf('+');
+        return suffixIndex < 0 ? version : version[..suffixIndex];
     }
 }

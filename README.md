@@ -22,6 +22,8 @@ dotnet src/Dieodds/bin/Release/net10.0/dieodds.dll COMMAND
 
 Replace `COMMAND` with one of the command forms below.
 
+`dieodds --version` prints `dieodds 0.1.0`; the version is the `<Version>` in `Directory.Build.props` at the repository root.
+
 ## Usage
 
 ```text
