@@ -58,6 +58,8 @@ A dice term has the form `[COUNT]dSIDES`, optionally followed by one modifier (`
 
 Plain numbered dice have equal-weight faces. Reroll and explosion modifiers produce their specified weighted faces; all valid dice outcomes have exact integer weights. dieodds counts independent dice sequences as weighted outcomes with arbitrary-precision integers, so totals are not capped. Probabilities remain exact internally. Means, variances, and percentages are displayed to two decimal places and rounded half away from zero; rounding changes only the displayed decimals, not the exact internal counts. For standard input, `-` reads strict UTF-8, skips one leading byte-order mark, ignores blank lines, and requires exactly one nonblank expression.
 
+The letter `d` of a dice term may also be written `D`: `2D6+3`, `D20`, `DF` and `D%` mean `2d6+3`, `d20`, `dF` and `d%`. Only that letter has an upper case form: `F`, `!`, `r`, `kh` and `kl` stay as they are, and an expression is echoed as it was written.
+
 ## Commands
 
 `stats EXPR` reports the expression, weighted outcome total, minimum, maximum, exact mean and variance (displayed to two decimal places), median, and all tied modes.

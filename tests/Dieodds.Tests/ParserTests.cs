@@ -228,7 +228,7 @@ public class ParserTests
     [Fact]
     public void ReportsUnexpectedUppercaseCharacter()
     {
-        AssertError("D6", "unexpected \"D\" at column 1");
+        AssertError("X6", "unexpected \"X\" at column 1");
     }
 
     [Fact]
