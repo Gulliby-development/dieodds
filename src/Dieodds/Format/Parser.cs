@@ -144,7 +144,7 @@ public static class Parser
                 return new Group(inner);
             }
 
-            if (character == 'd')
+            if (character is 'd' or 'D')
             {
                 return ParseDice(_position, null);
             }
@@ -153,7 +153,7 @@ public static class Parser
             {
                 var start = _position;
                 var digits = ReadDigits();
-                if (!AtEnd && text[_position] == 'd')
+                if (!AtEnd && text[_position] is 'd' or 'D')
                 {
                     return ParseDice(start, digits);
                 }
